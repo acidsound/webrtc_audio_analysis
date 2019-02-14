@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Static Template</title>
+	<style>
+		canvas {
+			outline: #333 solid 1px;
+		}
+
+		input[type=range] {
+			width: 36em;
+			margin-left: 1.5em;
+		}
+
+		.container {
+			width: 512px;
+			display: flex;
+		}
+
+		.info {
+			width: 4em;
+			text-align: right;
+		}
+
+		button {
+			padding: 0.5em 1em;
+		}
+
+		div {
+			margin-bottom: 0.5em;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<canvas id="spectrum" width="512" height="256"></canvas>
+	</div>
+	<div class="container">
+		<label for="slider">frequency</label>		
+		<input id="slider" name="slider" type="range" value="440" min="10" max="10000" step="10" list="freqlist" />
+		<datalist id="freqlist">
+			<option value="50" label="low">
+			<option value="110">
+		  <option value="220">
+			<optuon value="440">
+			<option value="880">
+			<option value="1760">
+			<option value="3520">
+			<option value="7040">
+			<option value="14080" label="high">
+		</datalist>
+		<div class="info">
+			<span id="freq">440</span><label for="slider">hz</label>
+		</div>
+	</div>
+	<div>
+		<button id="turnOn">turn on</button>
+		<button id="pause">pause</button>
+	</div>
+	<div>
+		<audio controls id="remoteAudio" style="display: none;"></audio>
+	</div>
+	<div>
+		<span>Monitoring Audio: </span>
+		<input type="radio" id="localRadio" name="audioSrc" value="local">
+		<label for="localRadio">local</label>
+		<input type="radio" id="remoteRadio" name="audioSrc" value="remote" checked>
+		<label for="remoteRadio">remote</label>
+	</div>
+	<div>
+		<span>Comparison method: </span>
+		<input type="radio" id="duplicated" name="comparisonMethod" value="duplicated">
+		<label for="duplicate">duplicated</label>
+		<input type="radio" id="mirrored" name="comparisonMethod" value="mirrored" checked>
+		<label for="mirrored">mirrored</label>
+	</div>
+	<script src="main.js">
+
+	</script>
+</body>
+
+</html>
